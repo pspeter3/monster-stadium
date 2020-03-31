@@ -4,7 +4,7 @@ import { render } from "@testing-library/preact";
 
 describe("index", () => {
     test("Title", () => {
-        const ctx = render(<Title/>);
+        const ctx = render(<Title />);
         expect(ctx.queryAllByText("Monster Stadium")).toHaveLength(2);
     });
 });
