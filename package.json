@@ -18,6 +18,7 @@
   },
   "homepage": "https://monster-stadium.netlify.com",
   "dependencies": {
+    "preact": "^10.3.4",
     "tslib": "^1.11.1"
   },
   "devDependencies": {

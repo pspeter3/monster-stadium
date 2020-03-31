@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const configure = (): webpack.Configuration => {
     return {
-        entry: path.join(__dirname, "src", "index.ts"),
+        entry: path.join(__dirname, "src", "index.tsx"),
         module: {
             rules: [
                 {
