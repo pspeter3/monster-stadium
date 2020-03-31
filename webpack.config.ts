@@ -15,11 +15,11 @@ const configure = (): webpack.Configuration => {
                             loader: "ts-loader",
                             options: {
                                 compilerOptions: {
-                                    module: "esnext"
-                                }
-                            }
-                        }
-                    ]
+                                    module: "esnext",
+                                },
+                            },
+                        },
+                    ],
                 },
             ],
         },
@@ -29,9 +29,9 @@ const configure = (): webpack.Configuration => {
         plugins: [
             new HtmlWebpackPlugin({
                 title: "Monster Stadium",
-                scriptLoading: "defer"
-            })
-        ]
+                scriptLoading: "defer",
+            }),
+        ],
     };
 };
 
