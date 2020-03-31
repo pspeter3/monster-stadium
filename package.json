@@ -1,0 +1,19 @@
+{
+  "name": "monster-stadium",
+  "description": "D&D 5E Encounter builder design for Avrae & D&D Beyond.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pspeter3/monster-stadium.git"
+  },
+  "author": "Phips Peter",
+  "bugs": {
+    "url": "https://github.com/pspeter3/monster-stadium/issues"
+  },
+  "homepage": "https://monster-stadium.netlify.com",
+  "dependencies": {},
+  "devDependencies": {}
+}
