@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "fmt": "prettier --write '*.ts' 'src/**/*'",
+    "fmt": "prettier --write '*.{j,t}s' 'src/**/*'",
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,14 +18,22 @@
   },
   "homepage": "https://monster-stadium.netlify.com",
   "dependencies": {
+    "@tailwindcss/ui": "^0.1.3",
     "preact": "^10.3.4",
+    "tailwindcss": "^1.2.0",
     "tslib": "^1.11.1"
   },
   "devDependencies": {
     "@types/html-webpack-plugin": "^3.2.2",
+    "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/webpack": "^4.41.10",
+    "css-loader": "^3.4.2",
     "html-webpack-plugin": "^4.0.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "prettier": "^2.0.2",
+    "purgecss-webpack-plugin": "^2.1.0",
     "ts-loader": "^6.2.2",
     "ts-node": "^8.8.1",
     "typescript": "^3.8.3",

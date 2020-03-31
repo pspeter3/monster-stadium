@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const configure = (): webpack.Configuration => {
     return {
@@ -21,6 +22,25 @@ const configure = (): webpack.Configuration => {
                         },
                     ],
                 },
+                {
+                    test: /\.css?$/,
+                    use: [
+                        {
+                            loader: MiniCssExtractPlugin.loader,
+                        },
+                        { loader: "css-loader", options: { importLoaders: 1 } },
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                ident: "postcss",
+                                plugins: [
+                                    require("tailwindcss"),
+                                    require("autoprefixer"),
+                                ],
+                            },
+                        },
+                    ],
+                },
             ],
         },
         resolve: {
@@ -31,6 +51,7 @@ const configure = (): webpack.Configuration => {
                 title: "Monster Stadium",
                 scriptLoading: "defer",
             }),
+            new MiniCssExtractPlugin(),
         ],
     };
 };
