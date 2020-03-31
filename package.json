@@ -14,6 +14,10 @@
     "url": "https://github.com/pspeter3/monster-stadium/issues"
   },
   "homepage": "https://monster-stadium.netlify.com",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
 }
