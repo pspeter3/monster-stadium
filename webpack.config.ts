@@ -5,7 +5,10 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const configure = (): webpack.Configuration => {
     return {
-        entry: path.join(__dirname, "src", "index.tsx"),
+        entry: [
+            path.join(__dirname, "src", "index.css"),
+            path.join(__dirname, "src", "index.tsx"),
+        ],
         module: {
             rules: [
                 {

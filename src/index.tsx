@@ -1,4 +1,5 @@
-import { h, render } from "preact";
-import "./index.css";
+import { h, render, FunctionComponent } from "preact";
 
-render(<h1 class="text-red-300">Test</h1>, document.body);
+export const Title: FunctionComponent = () => <h1>Monster Stadium</h1>;
+
+render(<Title />, document.body);
