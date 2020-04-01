@@ -45,6 +45,7 @@ const configure = async (
         ],
         output: {
             filename: "[name].[chunkhash].js",
+            publicPath: "/",
         },
         module: {
             rules: [
