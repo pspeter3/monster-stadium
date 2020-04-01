@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "fmt": "prettier --write '*.{j,t}s' 'src/**/*'",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --history-api-fallback",
     "test": "jest"
   },
   "repository": {
@@ -22,7 +22,8 @@
     "preact": "^10.3.4",
     "tailwindcss": "^1.2.0",
     "ts-jest": "^25.3.0",
-    "tslib": "^1.11.1"
+    "tslib": "^1.11.1",
+    "wouter-preact": "^2.4.0"
   },
   "devDependencies": {
     "@testing-library/preact": "^1.0.2",

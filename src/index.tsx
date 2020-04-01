@@ -1,5 +1,4 @@
-import { h, render, FunctionComponent } from "preact";
+import { h, render } from "preact";
+import { App } from "./app";
 
-export const Title: FunctionComponent = () => <h1>Monster Stadium</h1>;
-
-render(<Title />, document.body);
+render(<App />, document.body);
