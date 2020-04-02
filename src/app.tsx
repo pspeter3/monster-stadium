@@ -1,13 +1,13 @@
 import { h, FunctionComponent } from "preact";
 import { Route, Switch } from "wouter-preact";
-import { About } from "./pages/about";
-import { EncounterBuilder } from "./pages/encounter_builder";
-import { EnvironmentDetail } from "./pages/environment_detail";
-import { EnvironmentList } from "./pages/environment_list";
-import { MonsterDetail } from "./pages/monster_detail";
-import { MonsterList } from "./pages/monster_list";
-import { SourceDetail } from "./pages/source_detail";
-import { SourceList } from "./pages/source_list";
+import { About } from "./pages/About";
+import { EncounterBuilder } from "./pages/EncounterBuilder";
+import { EnvironmentDetail } from "./pages/EnvironmentDetail";
+import { EnvironmentList } from "./pages/EnvironmentList";
+import { MonsterDetail } from "./pages/MonsterDetail";
+import { MonsterList } from "./pages/MonsterList";
+import { SourceDetail } from "./pages/SourceDetail";
+import { SourceList } from "./pages/SourceList";
 
 export const App: FunctionComponent = () => {
     return (
