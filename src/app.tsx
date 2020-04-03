@@ -1,25 +1,13 @@
 import { h, FunctionComponent } from "preact";
-import { Route, Switch } from "wouter-preact";
-import { About } from "./pages/About";
-import { EncounterBuilder } from "./pages/EncounterBuilder";
-import { EnvironmentDetail } from "./pages/EnvironmentDetail";
-import { EnvironmentList } from "./pages/EnvironmentList";
-import { MonsterDetail } from "./pages/MonsterDetail";
-import { MonsterList } from "./pages/MonsterList";
-import { SourceDetail } from "./pages/SourceDetail";
-import { SourceList } from "./pages/SourceList";
+import { Info } from "preact-feather";
 
 export const App: FunctionComponent = () => {
     return (
-        <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/monsters" component={MonsterList} />
-            <Route path="/monsters/:source/:id" component={MonsterDetail} />
-            <Route path="/enivornments" component={EnvironmentList} />
-            <Route path="/environments/:id" component={EnvironmentDetail} />
-            <Route path="/sources" component={SourceList} />
-            <Route path="/sources/:id" component={SourceDetail} />
-            <Route path="/" component={EncounterBuilder} />
-        </Switch>
+        <header class="flex items-center justify-between h-16 px-1">
+            <h1 class="text-2xl tracking-tight leading-none font-semibold px-3 text-gray-900">
+                Monster Stadium
+            </h1>
+            <a href="https://github.com/pspeter3/monster-stadium" class="w-12 h-12 flex items-center justify-center text-gray-800 hover:text-gray-50 hover:text-gray-900 rounded-full"><Info/></a>
+        </header>
     );
 };
