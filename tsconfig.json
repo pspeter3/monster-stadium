@@ -63,6 +63,7 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "resolveJsonModule": true
   }
 }
