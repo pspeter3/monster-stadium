@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "fmt": "prettier --write '*.ts' 'src/**/*'",
-    "start": "webpack-dev-server --history-api-fallback",
+    "start": "webpack-dev-server",
     "test": "jest"
   },
   "repository": {
