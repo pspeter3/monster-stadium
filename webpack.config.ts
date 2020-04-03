@@ -39,6 +39,9 @@ const plugins = async (production: boolean): Promise<webpack.Plugin[]> => {
         new HtmlWebpackPlugin({
             title: "Monster Stadium",
             scriptLoading: "defer",
+            meta: {
+                "description": "Dungeons & Dragons 5E Encounter Builder for Avrae"
+            }
         }),
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",
