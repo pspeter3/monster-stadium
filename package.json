@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "fmt": "prettier --write '*.{j,t}s' 'src/**/*'",
+    "fmt": "prettier --write '*.ts' 'src/**/*'",
     "start": "webpack-dev-server --history-api-fallback",
     "test": "jest"
   },

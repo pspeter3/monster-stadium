@@ -75,7 +75,19 @@ const configure = async (
                             options: {
                                 ident: "postcss",
                                 plugins: [
-                                    require("tailwindcss"),
+                                    require("tailwindcss")({
+                                        theme: {
+                                            extend: {
+                                                screens: {
+                                                    dark: {
+                                                        raw:
+                                                            "(prefers-color-scheme: dark)",
+                                                    },
+                                                },
+                                            },
+                                        },
+                                        plugins: [require("@tailwindcss/ui")],
+                                    }),
                                     require("autoprefixer"),
                                 ],
                             },
