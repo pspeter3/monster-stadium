@@ -9,6 +9,31 @@ import webpack from "webpack";
 
 type Mode = "production" | "development";
 
+class LangPlugin {
+    public static readonly Name = "LangPlugin";
+
+    private lang: string;
+
+    constructor(lang: string) {
+        this.lang = lang;
+    }
+
+    apply(compiler: webpack.Compiler) {
+        compiler.hooks.compilation.tap(LangPlugin.Name, (compilation) => {
+            HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tap(
+                LangPlugin.Name,
+                (data) => {
+                    data.html = data.html.replace(
+                        "<html",
+                        `<html lang="${this.lang}"`
+                    );
+                    return data;
+                }
+            );
+        });
+    }
+}
+
 const plugins = async (production: boolean): Promise<webpack.Plugin[]> => {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -18,6 +43,7 @@ const plugins = async (production: boolean): Promise<webpack.Plugin[]> => {
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",
         }),
+        new LangPlugin("en"),
     ];
     if (production) {
         const paths = await glob(path.join(__dirname, "src", "**", "*.tsx"), {
