@@ -1,16 +1,17 @@
 import data from "./data.json";
 
 export type SourceID =
-    | "oota"
-    | "pota"
     | "basic-rules"
+    | "cos"
     | "hotdq"
     | "mm"
+    | "oota"
     | "phb"
-    | "skt"
-    | "cos"
-    | "tftyp"
+    | "pota"
     | "rot"
+    | "skt"
+    | "srd"
+    | "tftyp"
     | "vgtm";
 
 export interface Source {
@@ -33,6 +34,39 @@ export const Sizes = new Set<Size>([
     "Large",
     "Huge",
     "Gargantuan",
+]);
+
+export type Type =
+    | "Aberration"
+    | "Beast"
+    | "Celestial"
+    | "Construct"
+    | "Dragon"
+    | "Elemental"
+    | "Fey"
+    | "Fiend"
+    | "Giant"
+    | "Humanoid"
+    | "Monstrosity"
+    | "Ooze"
+    | "Plant"
+    | "Undead";
+
+export const Types = new Set<Type>([
+    "Aberration",
+    "Beast",
+    "Celestial",
+    "Construct",
+    "Dragon",
+    "Elemental",
+    "Fey",
+    "Fiend",
+    "Giant",
+    "Humanoid",
+    "Monstrosity",
+    "Ooze",
+    "Plant",
+    "Undead",
 ]);
 
 export type Alignment =
@@ -172,15 +206,16 @@ export interface Monster {
     readonly id: string;
     readonly name: string;
     readonly size: Size;
+    readonly type: Type;
     readonly alignment: Alignment;
     readonly environments: ReadonlyArray<Environment>;
     readonly cr: ChallengeRating;
-    readonly ac: number;
     readonly hp: number;
+    readonly ac: number;
     readonly init: number;
+    readonly lair: boolean;
     readonly legendary: boolean;
     readonly unique: boolean;
-    readonly srd: false;
     readonly sources: ReadonlyArray<SourceID>;
 }
 
