@@ -106,6 +106,7 @@ const configure = async (
                                 ident: "postcss",
                                 plugins: [
                                     require("tailwindcss")({
+                                        important: true,
                                         theme: {
                                             extend: {
                                                 screens: {
