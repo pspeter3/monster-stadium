@@ -106,6 +106,7 @@ const configure = async (
                                 ident: "postcss",
                                 plugins: [
                                     require("tailwindcss")({
+                                        important: true,
                                         theme: {
                                             extend: {
                                                 screens: {
@@ -114,9 +115,12 @@ const configure = async (
                                                             "(prefers-color-scheme: dark)",
                                                     },
                                                 },
+                                                boxShadow: {
+                                                    outline:
+                                                        "0 0 0 0.25rem rgba(56,178,172,0.5)",
+                                                },
                                             },
                                         },
-                                        plugins: [require("@tailwindcss/ui")],
                                     }),
                                     require("autoprefixer"),
                                 ],

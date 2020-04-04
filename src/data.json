@@ -6249,7 +6249,13 @@
             "name": "Lizard King/Queen",
             "size": "Medium",
             "alignment": "Chaotic Evil",
-            "environments": ["Coast", "Dungeon", "Forest", "Grassland", "Swamp"],
+            "environments": [
+                "Coast",
+                "Dungeon",
+                "Forest",
+                "Grassland",
+                "Swamp"
+            ],
             "cr": 4,
             "ac": 15,
             "hp": 75,
@@ -6265,7 +6271,13 @@
             "name": "Lizardfolk",
             "size": "Medium",
             "alignment": "Neutral",
-            "environments": ["Coast", "Dungeon", "Forest", "Grassland", "Swamp"],
+            "environments": [
+                "Coast",
+                "Dungeon",
+                "Forest",
+                "Grassland",
+                "Swamp"
+            ],
             "cr": 0.5,
             "ac": 15,
             "hp": 22,
@@ -6281,7 +6293,13 @@
             "name": "Lizardfolk Shaman",
             "size": "Medium",
             "alignment": "Neutral",
-            "environments": ["Coast", "Dungeon", "Forest", "Grassland", "Swamp"],
+            "environments": [
+                "Coast",
+                "Dungeon",
+                "Forest",
+                "Grassland",
+                "Swamp"
+            ],
             "cr": 2,
             "ac": 13,
             "hp": 27,
@@ -7043,7 +7061,13 @@
             "name": "Otyugh",
             "size": "Large",
             "alignment": "Neutral",
-            "environments": ["Cave", "Dungeon", "Ruins", "Swamp", "Underground"],
+            "environments": [
+                "Cave",
+                "Dungeon",
+                "Ruins",
+                "Swamp",
+                "Underground"
+            ],
             "cr": 5,
             "ac": 14,
             "hp": 114,
@@ -7847,7 +7871,13 @@
             "name": "Scorpion",
             "size": "Tiny",
             "alignment": "Unaligned",
-            "environments": ["Cave", "Desert", "Grassland", "Mountain", "Swamp"],
+            "environments": [
+                "Cave",
+                "Desert",
+                "Grassland",
+                "Mountain",
+                "Swamp"
+            ],
             "cr": 0,
             "ac": 11,
             "hp": 1,
@@ -8095,7 +8125,13 @@
             "name": "Spectator",
             "size": "Medium",
             "alignment": "Lawful Neutral",
-            "environments": ["Cave", "Dungeon", "Ruins", "Underground", "Urban"],
+            "environments": [
+                "Cave",
+                "Dungeon",
+                "Ruins",
+                "Underground",
+                "Urban"
+            ],
             "cr": 3,
             "ac": 14,
             "hp": 39,
@@ -12216,7 +12252,13 @@
             "name": "Storm Giant Quintessent",
             "size": "Huge",
             "alignment": "Chaotic Good",
-            "environments": ["Arctic", "Coast", "Desert", "Mountain", "Aquatic"],
+            "environments": [
+                "Arctic",
+                "Coast",
+                "Desert",
+                "Mountain",
+                "Aquatic"
+            ],
             "cr": 16,
             "ac": 12,
             "hp": 230,
