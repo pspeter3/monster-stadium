@@ -20,7 +20,7 @@ const Add = el<HTMLButtonElement>("button", [
 
 const Container = el("div", ["px-3", "w-full", "sm:flex", "sm:items-center"]);
 
-const Overview = el("header", ["sm:w-64"]);
+const Overview = el("header", ["flex-grow", "max-w-xs"]);
 
 const Name = el("h2", ["text-gray-900", "font-semibold"]);
 
@@ -61,7 +61,7 @@ export const MonsterTile: FunctionComponent<Props> = ({ monster, onAdd }) => (
                 </Name>
 
                 <Summary>
-                    {monster.size}, {monster.alignment}
+                    {monster.size} {monster.type}, {monster.alignment}
                 </Summary>
             </Overview>
             <StatList>
