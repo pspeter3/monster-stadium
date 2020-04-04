@@ -1,16 +1,17 @@
 import data from "./data.json";
 
 export type SourceID =
-    | "oota"
-    | "pota"
     | "basic-rules"
+    | "cos"
     | "hotdq"
     | "mm"
+    | "oota"
     | "phb"
-    | "skt"
-    | "cos"
-    | "tftyp"
+    | "pota"
     | "rot"
+    | "skt"
+    | "srd"
+    | "tftyp"
     | "vgtm";
 
 export interface Source {

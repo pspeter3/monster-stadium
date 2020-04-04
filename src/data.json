@@ -1,15 +1,16 @@
 {
     "sources": [
-        { "id": "oota", "name": "Out of the Abyss" },
-        { "id": "pota", "name": "Princes of the Apocalypse" },
         { "id": "basic-rules", "name": "Basic Rules v1" },
+        { "id": "cos", "name": "Curse of Strahd" },
         { "id": "hotdq", "name": "Hoard of the Dragon Queen" },
         { "id": "mm", "name": "Monster Manual" },
+        { "id": "oota", "name": "Out of the Abyss" },
         { "id": "phb", "name": "Player's Handbook" },
-        { "id": "skt", "name": "Storm King's Thunder" },
-        { "id": "cos", "name": "Curse of Strahd" },
-        { "id": "tftyp", "name": "Tales from the Yawning Portal" },
+        { "id": "pota", "name": "Princes of the Apocalypse" },
         { "id": "rot", "name": "Rise of Tiamat" },
+        { "id": "skt", "name": "Storm King's Thunder" },
+        { "id": "srd", "name": "Standard Resource Document"},
+        { "id": "tftyp", "name": "Tales from the Yawning Portal" },
         { "id": "vgtm", "name": "Volo's Guide to Monsters" }
     ],
     "monsters": [
