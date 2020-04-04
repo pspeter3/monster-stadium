@@ -114,6 +114,10 @@ const configure = async (
                                                             "(prefers-color-scheme: dark)",
                                                     },
                                                 },
+                                                boxShadow: {
+                                                    outline:
+                                                        "0 0 0 0.25rem rgba(56,178,172,0.5)",
+                                                },
                                             },
                                         },
                                     }),
