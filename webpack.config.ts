@@ -116,7 +116,6 @@ const configure = async (
                                                 },
                                             },
                                         },
-                                        plugins: [require("@tailwindcss/ui")],
                                     }),
                                     require("autoprefixer"),
                                 ],
