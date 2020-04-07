@@ -1,10 +1,14 @@
-import { Encounter } from "../schema";
-import { useReducer, useEffect } from "preact/hooks";
+import {
+    usePersistentReducer,
+    PersistenceAction,
+    QueryStringProvider,
+    Serializer,
+} from "./usePersistentReducer";
 
-export type EncounterSetAction = Readonly<{
-    type: "set";
-    encounter: Encounter;
-}>;
+export interface Encounter {
+    readonly name?: string;
+    readonly monsters: Readonly<Record<string, number>>;
+}
 
 export type EncouterNameAction = Readonly<{
     type: "name";
@@ -22,7 +26,7 @@ export type EncounterDecrementAction = Readonly<{
 }>;
 
 export type EncounterAction =
-    | EncounterSetAction
+    | PersistenceAction<Encounter>
     | EncouterNameAction
     | EncounterIncrementAction
     | EncounterDecrementAction;
@@ -32,10 +36,13 @@ const valueOf = (
     id: string
 ): number => (monsters[id] === undefined ? 0 : monsters[id]);
 
-const reducer = (encounter: Encounter, action: EncounterAction): Encounter => {
+export const reducer = (
+    encounter: Encounter,
+    action: EncounterAction
+): Encounter => {
     switch (action.type) {
-        case "set": {
-            return action.encounter;
+        case "persistence": {
+            return action.value;
         }
         case "name": {
             const { name } = action;
@@ -76,52 +83,41 @@ const reducer = (encounter: Encounter, action: EncounterAction): Encounter => {
 
 export type EncounterDispatch = (action: EncounterAction) => void;
 
-const parseEncounter = (queryString: string): Encounter => {
-    const params = new URLSearchParams(queryString);
-    const encounter: { name?: string; monsters: Record<string, number> } = {
-        monsters: {},
-    };
-    for (let [key, value] of params) {
-        if (key === "name") {
-            encounter.name = value;
-        } else {
-            const count = parseInt(value);
-            if (!Number.isNaN(count)) {
-                encounter.monsters[key] = count;
+const persistence = new QueryStringProvider();
+
+export const serializer: Serializer<Encounter> = {
+    parse(data) {
+        const params = new URLSearchParams(data);
+        const encounter: { name?: string; monsters: Record<string, number> } = {
+            monsters: {},
+        };
+        for (let [key, value] of params) {
+            if (key === "name") {
+                encounter.name = value;
+            } else {
+                const count = parseInt(value);
+                if (!Number.isNaN(count)) {
+                    encounter.monsters[key] = count;
+                }
             }
         }
-    }
-    return encounter;
-};
-
-const serializeEncounter = (encounter: Encounter): string => {
-    const params = new URLSearchParams();
-    if (encounter.name) {
-        params.set("name", encounter.name);
-    }
-    Object.keys(encounter.monsters).forEach((id) => {
-        params.set(id, encounter.monsters[id].toString());
-    });
-    return params.toString();
-};
-
-export const useEncounter = (): [Encounter, EncounterDispatch] => {
-    const ctx = useReducer(reducer, parseEncounter(location.search));
-    const [encounter, dispatch] = ctx;
-    useEffect(() => {
-        const search = serializeEncounter(encounter);
-        if (location.search !== search) {
-            history.pushState(null, "", `?${search}`);
+        return encounter;
+    },
+    stringify(encounter) {
+        const params = new URLSearchParams();
+        if (encounter.name) {
+            params.set("name", encounter.name);
         }
-    }, [encounter]);
-    useEffect(() => {
-        const listener = () =>
-            dispatch({
-                type: "set",
-                encounter: parseEncounter(location.search),
-            });
-        window.addEventListener("popstate", listener);
-        return () => window.removeEventListener("popstate", listener);
-    }, []);
-    return ctx;
+        Object.keys(encounter.monsters).forEach((id) => {
+            params.set(id, encounter.monsters[id].toString());
+        });
+        return params.toString();
+    },
 };
+
+export const useEncounter = (): [Encounter, EncounterDispatch] =>
+    usePersistentReducer(
+        reducer,
+        { monsters: {} },
+        { persistence, serializer }
+    );
