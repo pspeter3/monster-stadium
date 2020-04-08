@@ -31,6 +31,8 @@ export type EncounterAction =
     | EncounterIncrementAction
     | EncounterDecrementAction;
 
+export type EncounterDispatch = (action: EncounterAction) => void;
+
 const valueOf = (
     monsters: Readonly<Record<string, number>>,
     id: string
@@ -80,8 +82,6 @@ export const reducer = (
         }
     }
 };
-
-export type EncounterDispatch = (action: EncounterAction) => void;
 
 const persistence = new QueryStringProvider();
 
