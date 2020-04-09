@@ -100,8 +100,11 @@ export const reducer = (party: Party, action: PartyAction): Party => {
 
 const persistence = new LocalStorageProvider("party");
 
-export const useParty = () =>
-    usePersistentReducer(reducer, {} as Party, {
+const initial: Party = {};
+
+/* istanbul ignore next */
+export const useParty = (): [Party, PartyDispatch] =>
+    usePersistentReducer(reducer, initial, {
         persistence,
         serializer: JSON,
     });

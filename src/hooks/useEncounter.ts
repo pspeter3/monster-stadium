@@ -115,6 +115,7 @@ export const serializer: Serializer<Encounter> = {
     },
 };
 
+/* istanbul ignore next */
 export const useEncounter = (): [Encounter, EncounterDispatch] =>
     usePersistentReducer(
         reducer,

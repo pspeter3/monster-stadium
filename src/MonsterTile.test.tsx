@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { render, fireEvent } from "@testing-library/preact";
 import { MonsterTile } from "./MonsterTile";
-import { Monster } from "./bestiary";
+import { Monster } from "./core/bestiary";
 
 describe("Monster Tile", () => {
     const monster: Monster = {
