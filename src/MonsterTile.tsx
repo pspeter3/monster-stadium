@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from "preact";
 import { el } from "./utils";
-import { Monster } from "./bestiary";
+import { Monster } from "./core/bestiary";
 import { PlusCircle } from "preact-feather";
 
 const Root = el("section", ["flex", "px-1", "py-3"]);

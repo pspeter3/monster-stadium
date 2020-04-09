@@ -1,7 +1,7 @@
 import { h, FunctionComponent, Fragment } from "preact";
 import { useMemo } from "preact/hooks";
 import { Header } from "./Header";
-import { Monsters, Monster } from "./bestiary";
+import { Monsters, Monster } from "./core/bestiary";
 import { MonsterTile } from "./MonsterTile";
 
 export const App: FunctionComponent = () => {
