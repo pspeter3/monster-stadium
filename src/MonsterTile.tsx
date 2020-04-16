@@ -22,7 +22,7 @@ const Container = el("div", ["px-3", "w-full", "sm:flex", "sm:items-center"]);
 
 const Overview = el("header", ["flex-grow", "max-w-xs"]);
 
-const Name = el("h2", ["text-gray-900", "font-semibold"]);
+const Name = el("h3", ["text-gray-900", "font-semibold"]);
 
 const Link = el<HTMLAnchorElement>("a", [
     "focus:outline-none focus:shadow-outline",

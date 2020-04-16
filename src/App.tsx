@@ -3,6 +3,7 @@ import { useMemo } from "preact/hooks";
 import { Monsters, Monster } from "./core/bestiary";
 import { MonsterTile } from "./MonsterTile";
 import { NavBar } from "./components/NavBar";
+import { Section } from "./components/Section";
 
 export const App: FunctionComponent = () => {
     const monsters: ReadonlyArray<Monster> = useMemo(
@@ -22,13 +23,15 @@ export const App: FunctionComponent = () => {
     return (
         <Fragment>
             <NavBar />
-            {monsters.map((monster) => (
-                <MonsterTile
-                    key={monster.id}
-                    monster={monster}
-                    onAdd={(_: string) => {}}
-                />
-            ))}
+            <Section title="Monsters">
+                {monsters.map((monster) => (
+                    <MonsterTile
+                        key={monster.id}
+                        monster={monster}
+                        onAdd={(_: string) => {}}
+                    />
+                ))}
+            </Section>
         </Fragment>
     );
 };
