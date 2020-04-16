@@ -2,6 +2,7 @@ import { h, FunctionComponent } from "preact";
 import { el } from "./utils";
 import { Monster } from "./core/bestiary";
 import { PlusCircle } from "preact-feather";
+import { MonsterName } from "./components/MonsterName";
 
 const Root = el("section", ["flex", "px-1", "py-3"]);
 
@@ -21,13 +22,6 @@ const Add = el<HTMLButtonElement>("button", [
 const Container = el("div", ["px-3", "w-full", "sm:flex", "sm:items-center"]);
 
 const Overview = el("header", ["flex-grow", "max-w-xs"]);
-
-const Name = el("h3", ["text-gray-900", "font-semibold"]);
-
-const Link = el<HTMLAnchorElement>("a", [
-    "focus:outline-none focus:shadow-outline",
-    "rounded",
-]);
 
 const Summary = el("em", ["text-gray-700"]);
 
@@ -54,11 +48,7 @@ export const MonsterTile: FunctionComponent<Props> = ({ monster, onAdd }) => (
         </Add>
         <Container>
             <Overview>
-                <Name>
-                    <Link href={`https://dndbeyond.com/monsters/${monster.id}`}>
-                        {monster.name}
-                    </Link>
-                </Name>
+                <MonsterName id={monster.id} name={monster.name} />
 
                 <Summary>
                     {monster.size} {monster.type}, {monster.alignment}
