@@ -1,18 +1,17 @@
 import { h, FunctionComponent, Fragment } from "preact";
-import { useMemo } from "preact/hooks";
+import { useMemo, useState } from "preact/hooks";
 import { Bestiary, Monster } from "../core/bestiary";
 import { MonsterTile } from "./MonsterTile";
-import { useAdvancedSearch } from "../hooks/useAdvancedSearch";
 import { TextField } from "./TextField";
 
 export const MonsterList: FunctionComponent<{
     bestiary: Bestiary;
     onAdd: (id: string) => void;
 }> = ({ bestiary, onAdd }) => {
-    const [search, dispatch] = useAdvancedSearch();
+    const [filter, setFilter] = useState("");
     const monsters: ReadonlyArray<Monster> = useMemo(() => {
         const pattern =
-            search.pattern !== "" ? new RegExp(search.pattern, "i") : null;
+            filter !== "" ? new RegExp(filter, "i") : null;
         const results: Monster[] = [];
         for (let monster of bestiary.values()) {
             if (
@@ -33,14 +32,14 @@ export const MonsterList: FunctionComponent<{
             }
             return comp;
         });
-    }, [bestiary, search]);
+    }, [bestiary, filter]);
     return (
         <Fragment>
             <TextField
                 label="Search"
                 type="search"
-                value={search.pattern}
-                onInput={(pattern) => dispatch({ type: "pattern", pattern })}
+                value={filter}
+                onInput={setFilter}
             />
             <ul>
                 {monsters.map((monster) => (

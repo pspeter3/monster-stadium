@@ -16,7 +16,6 @@ import {
 } from "./usePersistentReducer";
 
 export interface AdvancedSearch {
-    readonly pattern: string;
     readonly sizes: ReadonlyArray<Size>;
     readonly types: ReadonlyArray<Type>;
     readonly alignments: ReadonlyArray<Alignment>;
@@ -27,11 +26,6 @@ export interface AdvancedSearch {
     readonly unique: boolean;
     readonly sources: ReadonlyArray<SourceID>;
 }
-
-export type AdvancedSearchPatternAction = Readonly<{
-    type: "pattern";
-    pattern: string;
-}>;
 
 export type AdvancedSearchMembershipAction =
     | Readonly<{
@@ -77,7 +71,6 @@ export type AdvancedSearchToggleAction = Readonly<{
 
 export type AdvancedSearchAction =
     | PersistenceAction<AdvancedSearch>
-    | AdvancedSearchPatternAction
     | AdvancedSearchMembershipAction
     | AdvancedSearchChallengeRatingAction
     | AdvancedSearchToggleAction;
@@ -91,13 +84,6 @@ export const reducer = (
     switch (action.type) {
         case "persistence": {
             return action.value;
-        }
-        case "pattern": {
-            const { pattern } = action;
-            return {
-                ...advancedSearch,
-                pattern,
-            };
         }
         case "membership": {
             const { key, item } = action;
@@ -129,7 +115,6 @@ export const reducer = (
 const persistence = new LocalStorageProvider("search");
 
 export const initial: AdvancedSearch = {
-    pattern: "",
     sizes: Array.from(Sizes),
     types: Array.from(Types),
     alignments: ["Any"],

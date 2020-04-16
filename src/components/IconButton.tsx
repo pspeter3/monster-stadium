@@ -12,8 +12,8 @@ export const IconButton: FunctionComponent<{
         <button
             class={`focus:outline-none focus:shadow-outline ${
                 variant === "danger"
-                    ? "hover:bg-red-100 hover:text-red-600"
-                    : "hover:bg-teal-100 hover:text-teal-600"
+                    ? "dark:hover:bg-red-900 hover:bg-red-100 hover:text-red-600"
+                    : "dark:hover:bg-teal-900 hover:bg-teal-100 hover:text-teal-600"
             } h-12 p-3 rounded-full ${
                 variant === "primary" ? "text-teal-600" : "text-gray-600"
             } w-12`}

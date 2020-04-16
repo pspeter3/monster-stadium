@@ -17,11 +17,11 @@ export const Section: FunctionComponent<{ title: string }> = ({
                         onClick={() => setExpanded((expanded) => !expanded)}
                         aria-expanded={expanded}
                     >
-                        <div class="font-semibold leading-6 px-3 text-gray-700 tracking-wide uppercase">
+                        <div class="dark:text-gray-500 font-semibold leading-6 px-3 text-gray-700 tracking-wide uppercase">
                             {title}
                         </div>
                         <div
-                            class={`hover:bg-blue-100 hover:text-blue-600 h-12 p-3 rounded-full w-12 ${
+                            class={`dark:hover:bg-blue-900 hover:bg-blue-100 hover:text-blue-600 h-12 p-3 rounded-full w-12 ${
                                 expanded ? "text-blue-600" : "text-gray-600"
                             }`}
                         >

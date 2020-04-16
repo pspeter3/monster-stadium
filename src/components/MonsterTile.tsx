@@ -18,7 +18,7 @@ export const MonsterTile: FunctionComponent<{
         />
         <hgroup class="w-full max-w-xs px-3">
             <MonsterName id={monster.id} name={monster.name} />
-            <h4 class="leading-6 text-gray-700">
+            <h4 class="dark:text-gray-500 leading-6 text-gray-700">
                 {monster.size} {monster.type}, {monster.alignment}
             </h4>
         </hgroup>
