@@ -1,15 +1,15 @@
 import { h } from "preact";
 import { render } from "@testing-library/preact";
-import { Header } from "./Header";
+import { NavBar } from "./NavBar";
 
-describe("Header", () => {
+describe("NavBar", () => {
     it("should have a title", () => {
-        const ctx = render(<Header />);
+        const ctx = render(<NavBar />);
         expect(ctx.getByText("Monster Stadium")).not.toBeNull();
     });
 
     it("should have a link", () => {
-        const ctx = render(<Header />);
+        const ctx = render(<NavBar />);
         expect(ctx.getByLabelText("About")).not.toBeNull();
     });
 });

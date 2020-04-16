@@ -1,8 +1,8 @@
 import { h, FunctionComponent, Fragment } from "preact";
 import { useMemo } from "preact/hooks";
-import { Header } from "./Header";
 import { Monsters, Monster } from "./core/bestiary";
 import { MonsterTile } from "./MonsterTile";
+import { NavBar } from "./components/NavBar";
 
 export const App: FunctionComponent = () => {
     const monsters: ReadonlyArray<Monster> = useMemo(
@@ -21,7 +21,7 @@ export const App: FunctionComponent = () => {
     );
     return (
         <Fragment>
-            <Header />
+            <NavBar />
             {monsters.map((monster) => (
                 <MonsterTile
                     key={monster.id}
