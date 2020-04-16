@@ -11,9 +11,9 @@ export const Section: FunctionComponent<{ title: string }> = ({
     return (
         <section>
             <header>
-                <h2>
+                <h2 class="px-1 py-3">
                     <button
-                        class="px-1 py-3 flex items-center justify-between w-full"
+                        class="h-12 flex focus:outline-none focus:shadow-outline items-center justify-between rounded w-full"
                         onClick={() => setExpanded((expanded) => !expanded)}
                         aria-expanded={expanded}
                     >
@@ -21,7 +21,7 @@ export const Section: FunctionComponent<{ title: string }> = ({
                             {title}
                         </div>
                         <div
-                            class={`w-12 h-12 hover:bg-teal-100 hover:text-teal-600 p-3 rounded-full ${
+                            class={`w-12 h-12 hover:bg-blue-100 hover:text-blue-600 p-3 rounded-full ${
                                 expanded ? "text-blue-600" : "text-gray-600"
                             }`}
                         >
