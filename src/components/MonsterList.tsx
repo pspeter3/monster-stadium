@@ -24,7 +24,6 @@ export const MonsterList: FunctionComponent<{
         }
         /* istanbul ignore next */
         return results.sort((a, b) => {
-            
             let comp = 0;
             if (a.name < b.name) {
                 comp = -1;

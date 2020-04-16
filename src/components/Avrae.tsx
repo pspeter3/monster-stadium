@@ -11,7 +11,7 @@ export const Avrae: FunctionComponent<{
         const lines = [
             "!multiline",
             `!init begin dyn -name "${
-                encounter.name !== undefined ? encounter.name : "Encounter"
+                encounter.name !== "" ? encounter.name : "Encounter"
             }"`,
         ];
         const prefixes = new Set<string>();

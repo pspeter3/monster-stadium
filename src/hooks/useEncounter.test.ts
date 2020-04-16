@@ -4,10 +4,10 @@ describe("useEncounter", () => {
     describe("reducer", () => {
         describe("persistence", () => {
             it("should override the value", () => {
-                const encounter: Encounter = { monsters: { foo: 1 } };
+                const encounter: Encounter = { name: "", monsters: { foo: 1 } };
                 expect(
                     reducer(
-                        { monsters: {} },
+                        { name: "", monsters: {} },
                         { type: "persistence", value: encounter }
                     )
                 ).toStrictEqual(encounter);
@@ -18,7 +18,7 @@ describe("useEncounter", () => {
             it("should set the name", () => {
                 const name = "name";
                 expect(
-                    reducer({ monsters: {} }, { type: "name", name })
+                    reducer({ name: "", monsters: {} }, { type: "name", name })
                 ).toStrictEqual({
                     name,
                     monsters: {},
@@ -30,18 +30,21 @@ describe("useEncounter", () => {
             it("should handle new monsters", () => {
                 const id = "awakened-shrub";
                 expect(
-                    reducer({ monsters: {} }, { type: "increment", id })
-                ).toStrictEqual({ monsters: { [id]: 1 } });
+                    reducer(
+                        { name: "", monsters: {} },
+                        { type: "increment", id }
+                    )
+                ).toStrictEqual({ name: "", monsters: { [id]: 1 } });
             });
 
             it("should handle existing monsters", () => {
                 const id = "awakened-shrub";
                 expect(
                     reducer(
-                        { monsters: { [id]: 1 } },
+                        { name: "", monsters: { [id]: 1 } },
                         { type: "increment", id }
                     )
-                ).toStrictEqual({ monsters: { [id]: 2 } });
+                ).toStrictEqual({ name: "", monsters: { [id]: 2 } });
             });
         });
 
@@ -49,30 +52,30 @@ describe("useEncounter", () => {
             it("should ignore missing monster", () => {
                 expect(
                     reducer(
-                        { monsters: {} },
+                        { name: "", monsters: {} },
                         { type: "decrement", id: "missing" }
                     )
-                ).toStrictEqual({ monsters: {} });
+                ).toStrictEqual({ name: "", monsters: {} });
             });
 
             it("should remove monsters", () => {
                 const id = "awakened-shrub";
                 expect(
                     reducer(
-                        { monsters: { [id]: 1 } },
+                        { name: "", monsters: { [id]: 1 } },
                         { type: "decrement", id }
                     )
-                ).toStrictEqual({ monsters: {} });
+                ).toStrictEqual({ name: "", monsters: {} });
             });
 
             it("should decrement monsters", () => {
                 const id = "awakened-shrub";
                 expect(
                     reducer(
-                        { monsters: { [id]: 2 } },
+                        { name: "", monsters: { [id]: 2 } },
                         { type: "decrement", id }
                     )
-                ).toStrictEqual({ monsters: { [id]: 1 } });
+                ).toStrictEqual({ name: "", monsters: { [id]: 1 } });
             });
         });
     });
@@ -89,6 +92,7 @@ describe("useEncounter", () => {
 
             it("should ignore non numbers", () => {
                 expect(serializer.parse(`?foo=bar`)).toStrictEqual({
+                    name: "",
                     monsters: {},
                 });
             });
@@ -96,6 +100,7 @@ describe("useEncounter", () => {
             it("should set monsters", () => {
                 const id = "awakened-shrub";
                 expect(serializer.parse(`?${id}=1`)).toStrictEqual({
+                    name: "",
                     monsters: { [id]: 1 },
                 });
             });
@@ -113,7 +118,10 @@ describe("useEncounter", () => {
                 const id = "awakened-shurb";
                 const count = 1;
                 expect(
-                    serializer.stringify({ monsters: { [id]: count } })
+                    serializer.stringify({
+                        name: "",
+                        monsters: { [id]: count },
+                    })
                 ).toStrictEqual(`${id}=${count}`);
             });
         });

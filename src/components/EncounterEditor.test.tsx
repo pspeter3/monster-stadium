@@ -10,7 +10,7 @@ describe("EncounterEditor", () => {
         const ctx = render(
             <EncounterEditor
                 bestiary={Monsters}
-                encounter={{ monsters: {} }}
+                encounter={{ name: "", monsters: {} }}
                 dispatch={dispatch}
             />
         );
@@ -25,6 +25,7 @@ describe("EncounterEditor", () => {
             <EncounterEditor
                 bestiary={Monsters}
                 encounter={{
+                    name: "",
                     monsters: { "awakened-shrub": 1, "abominable-shrub": 1 },
                 }}
                 dispatch={jest.fn()}

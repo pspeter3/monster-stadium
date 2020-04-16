@@ -6,7 +6,7 @@ import { Monsters } from "../core/bestiary";
 describe("Avrae", () => {
     it("should handle no name", () => {
         const ctx = render(
-            <Avrae bestiary={Monsters} encounter={{ monsters: {} }} />
+            <Avrae bestiary={Monsters} encounter={{ name: "", monsters: {} }} />
         );
         expect(ctx.baseElement).toMatchSnapshot();
     });
@@ -25,7 +25,7 @@ describe("Avrae", () => {
         const ctx = render(
             <Avrae
                 bestiary={Monsters}
-                encounter={{ monsters: { "awakened-shrub": 2 } }}
+                encounter={{ name: "", monsters: { "awakened-shrub": 2 } }}
             />
         );
         expect(ctx.baseElement).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe("Avrae", () => {
         const ctx = render(
             <Avrae
                 bestiary={Monsters}
-                encounter={{ monsters: { "abominable-yeti": 2 } }}
+                encounter={{ name: "", monsters: { "abominable-yeti": 2 } }}
             />
         );
         expect(ctx.baseElement).toMatchSnapshot();
@@ -46,6 +46,7 @@ describe("Avrae", () => {
             <Avrae
                 bestiary={Monsters}
                 encounter={{
+                    name: "",
                     monsters: { "abominable-yeti": 2, "awakened-shrub": 2 },
                 }}
             />
@@ -58,6 +59,7 @@ describe("Avrae", () => {
             <Avrae
                 bestiary={Monsters}
                 encounter={{
+                    name: "",
                     monsters: { "abominable-shrub": 2 },
                 }}
             />
