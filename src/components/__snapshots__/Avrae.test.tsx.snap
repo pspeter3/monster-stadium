@@ -8,7 +8,7 @@ exports[`Avrae should handle SRD monsters 1`] = `
     >
       !multiline
 !init begin dyn -name "Encounter"
-!init madd "Awakened Shrub -n 2 -name "A# (Awakened Shrub)" -rollhp -group awakened-shrub
+!init madd "Awakened Shrub" -n 2 -name "A# (Awakened Shrub)" -rollhp -group awakened-shrub
     </pre>
   </div>
 </body>
@@ -50,7 +50,7 @@ exports[`Avrae should handle name collisions 1`] = `
 !init begin dyn -name "Encounter"
 !init add 0 "A1 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
 !init add 0 "A2 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
-!init madd "Awakened Shrub -n 2 -name "AW# (Awakened Shrub)" -rollhp -group awakened-shrub
+!init madd "Awakened Shrub" -n 2 -name "AW# (Awakened Shrub)" -rollhp -group awakened-shrub
     </pre>
   </div>
 </body>

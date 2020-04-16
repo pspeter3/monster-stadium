@@ -7,6 +7,7 @@ import { MonsterTile } from "./components/MonsterTile";
 import { NavBar } from "./components/NavBar";
 import { Section } from "./components/Section";
 import { useEncounter } from "./hooks/useEncounter";
+import { EncounterEditor } from "./components/EncounterEditor";
 
 export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
     bestiary,
@@ -36,9 +37,11 @@ export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
             <Main>
                 <div>
                     <Section title="Encounter">
-                        <pre class="px-4 leading-6">
-                            {JSON.stringify(encounter, null, 2)}
-                        </pre>
+                        <EncounterEditor
+                            bestiary={bestiary}
+                            encounter={encounter}
+                            dispatch={encounterDispatch}
+                        />
                     </Section>
                     <Section title="Avrae">
                         <Avrae bestiary={bestiary} encounter={encounter} />

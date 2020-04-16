@@ -32,7 +32,7 @@ export const Avrae: FunctionComponent<{
                     const count = encounter.monsters[id];
                     if (monster.sources.includes("srd")) {
                         lines.push(
-                            `!init madd "${monster.name} -n ${count} -name "${prefix}# (${monster.name})" -rollhp -group ${id}`
+                            `!init madd "${monster.name}" -n ${count} -name "${prefix}# (${monster.name})" -rollhp -group ${id}`
                         );
                     } else {
                         for (let i = 1; i <= count; i++) {

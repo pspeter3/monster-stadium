@@ -9,7 +9,7 @@ export const NavBar: FunctionComponent = () => (
         <a
             href="https://github.com/pspeter3/monster-stadium"
             aria-label="About"
-            class="w-12 h-12 p-3 focus:outline-none focus:shadow-outline hover:bg-teal-100 hover:text-teal-600 rounded-full text-gray-600"
+            class="focus:outline-none focus:shadow-outline hover:bg-teal-100 hover:text-teal-600 h-12 p-3 rounded-full text-gray-600 w-12"
         >
             <Info />
         </a>

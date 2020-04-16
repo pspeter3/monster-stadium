@@ -3,19 +3,19 @@ import { Monster } from "../core/bestiary";
 import { PlusCircle } from "preact-feather";
 import { MonsterName } from "./MonsterName";
 import { StatList } from "./StatList";
+import { IconButton } from "./IconButton";
 
 export const MonsterTile: FunctionComponent<{
     monster: Monster;
     onAdd: (id: string) => void;
 }> = ({ monster, onAdd }) => (
     <li class="flex items-center px-1 py-3">
-        <button
-            class="h-12 focus:outline-none focus:outline-shadow hover:bg-teal-100 p-3 rounded-full text-teal-600 w-12"
-            aria-label={`Add ${monster.name}`}
+        <IconButton
+            label={`Add ${monster.name}`}
+            variant="primary"
             onClick={() => onAdd(monster.id)}
-        >
-            <PlusCircle />
-        </button>
+            icon={PlusCircle}
+        />
         <hgroup class="w-full max-w-xs px-3">
             <MonsterName id={monster.id} name={monster.name} />
             <h4 class="leading-6 text-gray-700">
