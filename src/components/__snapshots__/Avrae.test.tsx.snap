@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avrae should handle SRD monsters 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Encounter"
+!init madd "Awakened Shrub" -n 2 -name "A# (Awakened Shrub)" -rollhp -group awakened-shrub
+    </pre>
+  </div>
+</body>
+`;
+
+exports[`Avrae should handle a name 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Test"
+    </pre>
+  </div>
+</body>
+`;
+
+exports[`Avrae should handle missing monsters 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Encounter"
+    </pre>
+  </div>
+</body>
+`;
+
+exports[`Avrae should handle name collisions 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Encounter"
+!init add 0 "A1 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
+!init add 0 "A2 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
+!init madd "Awakened Shrub" -n 2 -name "AW# (Awakened Shrub)" -rollhp -group awakened-shrub
+    </pre>
+  </div>
+</body>
+`;
+
+exports[`Avrae should handle no name 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Encounter"
+    </pre>
+  </div>
+</body>
+`;
+
+exports[`Avrae should handle non SRD monters 1`] = `
+<body>
+  <div>
+    <pre
+      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
+    >
+      !multiline
+!init begin dyn -name "Encounter"
+!init add 0 "A1 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
+!init add 0 "A2 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
+    </pre>
+  </div>
+</body>
+`;

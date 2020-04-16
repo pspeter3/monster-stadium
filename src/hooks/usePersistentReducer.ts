@@ -13,7 +13,7 @@ export class QueryStringProvider implements PersistenceProvider {
         return location.search;
     }
     setValue(value: string): void {
-        history.pushState(null, "", `?${value}`);
+        history.replaceState(null, "", `?${value}`);
     }
     onChange(callback: Callback): Callback {
         window.addEventListener("popstate", callback);

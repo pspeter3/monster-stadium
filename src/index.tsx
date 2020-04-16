@@ -1,4 +1,5 @@
 import { h, render } from "preact";
 import { App } from "./App";
+import { Monsters } from "./core/bestiary";
 
-render(<App />, document.body);
+render(<App bestiary={Monsters} />, document.body);

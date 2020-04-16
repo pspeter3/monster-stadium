@@ -6,7 +6,7 @@ import {
 } from "./usePersistentReducer";
 
 export interface Encounter {
-    readonly name?: string;
+    readonly name: string;
     readonly monsters: Readonly<Record<string, number>>;
 }
 
@@ -88,7 +88,8 @@ const persistence = new QueryStringProvider();
 export const serializer: Serializer<Encounter> = {
     parse(data) {
         const params = new URLSearchParams(data);
-        const encounter: { name?: string; monsters: Record<string, number> } = {
+        const encounter: { name: string; monsters: Record<string, number> } = {
+            name: "",
             monsters: {},
         };
         for (let [key, value] of params) {
@@ -105,7 +106,7 @@ export const serializer: Serializer<Encounter> = {
     },
     stringify(encounter) {
         const params = new URLSearchParams();
-        if (encounter.name) {
+        if (encounter.name !== "") {
             params.set("name", encounter.name);
         }
         Object.keys(encounter.monsters).forEach((id) => {
@@ -119,6 +120,6 @@ export const serializer: Serializer<Encounter> = {
 export const useEncounter = (): [Encounter, EncounterDispatch] =>
     usePersistentReducer(
         reducer,
-        { monsters: {} },
+        { name: "", monsters: {} },
         { persistence, serializer }
     );

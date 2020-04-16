@@ -1,34 +1,40 @@
 import { h, FunctionComponent, Fragment } from "preact";
-import { useMemo } from "preact/hooks";
-import { Header } from "./Header";
-import { Monsters, Monster } from "./core/bestiary";
-import { MonsterTile } from "./MonsterTile";
+import { Avrae } from "./components/Avrae";
+import { Bestiary } from "./core/bestiary";
+import { EncounterEditor } from "./components/EncounterEditor";
+import { Main } from "./components/Main";
+import { MonsterList } from "./components/MonsterList";
+import { NavBar } from "./components/NavBar";
+import { Section } from "./components/Section";
+import { useEncounter } from "./hooks/useEncounter";
 
-export const App: FunctionComponent = () => {
-    const monsters: ReadonlyArray<Monster> = useMemo(
-        () =>
-            Monsters.filter(() => true).sort((a, b) => {
-                let comp = 0;
-                if (a.name < b.name) {
-                    comp = -1;
-                }
-                if (b.name < a.name) {
-                    comp = 1;
-                }
-                return comp;
-            }),
-        []
-    );
+export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
+    bestiary,
+}) => {
+    const [encounter, dispatch] = useEncounter();
     return (
         <Fragment>
-            <Header />
-            {monsters.map((monster) => (
-                <MonsterTile
-                    key={monster.id}
-                    monster={monster}
-                    onAdd={(_: string) => {}}
-                />
-            ))}
+            <NavBar />
+            <Main>
+                <div>
+                    <Section title="Encounter">
+                        <EncounterEditor
+                            bestiary={bestiary}
+                            encounter={encounter}
+                            dispatch={dispatch}
+                        />
+                    </Section>
+                    <Section title="Avrae">
+                        <Avrae bestiary={bestiary} encounter={encounter} />
+                    </Section>
+                </div>
+                <Section title="Monsters">
+                    <MonsterList
+                        bestiary={bestiary}
+                        onAdd={(id) => dispatch({ type: "increment", id })}
+                    />
+                </Section>
+            </Main>
         </Fragment>
     );
 };

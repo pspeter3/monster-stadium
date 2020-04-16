@@ -27,18 +27,6 @@ describe("useAdvancedSearch", () => {
             });
         });
 
-        describe("pattern", () => {
-            it("should set the pattern", () => {
-                const pattern = "Awakened Shrub";
-                expect(
-                    reducer(initial, { type: "pattern", pattern })
-                ).toStrictEqual({
-                    ...initial,
-                    pattern,
-                });
-            });
-        });
-
         describe("membership", () => {
             const factory = (
                 data:

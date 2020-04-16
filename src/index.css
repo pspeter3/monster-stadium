@@ -3,3 +3,15 @@
 @import "tailwindcss/components";
 /* purgecss end ignore */
 @import "tailwindcss/utilities";
+
+/* purgecss start ignore */
+body {
+    @apply antialiased;
+    @apply bg-white;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply bg-gray-900;
+    }
+}

@@ -219,5 +219,9 @@ export interface Monster {
     readonly sources: ReadonlyArray<SourceID>;
 }
 
+export type Bestiary = ReadonlyMap<string, Monster>;
+
 export const Sources: ReadonlyArray<Source> = data.sources as Source[];
-export const Monsters: ReadonlyArray<Monster> = data.monsters as Monster[];
+export const Monsters: Bestiary = new Map(
+    data.monsters.map((monster) => [monster.id, monster as Monster])
+);
