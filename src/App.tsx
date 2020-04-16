@@ -1,12 +1,12 @@
 import { h, FunctionComponent, Fragment } from "preact";
 import { useMemo } from "preact/hooks";
+import { Avrae } from "./components/Avrae";
+import { Bestiary, Monster } from "./core/bestiary";
 import { Main } from "./components/Main";
-import { Monster, Bestiary } from "./core/bestiary";
-import { MonsterTile } from "./MonsterTile";
+import { MonsterTile } from "./components/MonsterTile";
 import { NavBar } from "./components/NavBar";
 import { Section } from "./components/Section";
 import { useEncounter } from "./hooks/useEncounter";
-import { Avrae } from "./components/Avrae";
 
 export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
     bestiary,
@@ -15,7 +15,7 @@ export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
     const monsters: ReadonlyArray<Monster> = useMemo(() => {
         const results: Monster[] = [];
         for (let monster of bestiary.values()) {
-            if (!monster.sources.includes("srd")) {
+            if (monster.sources.includes("srd")) {
                 results.push(monster);
             }
         }
@@ -45,15 +45,17 @@ export const App: FunctionComponent<{ bestiary: Bestiary }> = ({
                     </Section>
                 </div>
                 <Section title="Monsters">
-                    {monsters.map((monster) => (
-                        <MonsterTile
-                            key={monster.id}
-                            monster={monster}
-                            onAdd={(id: string) =>
-                                encounterDispatch({ type: "increment", id })
-                            }
-                        />
-                    ))}
+                    <ul>
+                        {monsters.map((monster) => (
+                            <MonsterTile
+                                key={monster.id}
+                                monster={monster}
+                                onAdd={(id: string) =>
+                                    encounterDispatch({ type: "increment", id })
+                                }
+                            />
+                        ))}
+                    </ul>
                 </Section>
             </Main>
         </Fragment>
