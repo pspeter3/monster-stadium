@@ -4,6 +4,8 @@ import { Bestiary, Monster } from "../core/bestiary";
 import { MonsterTile } from "./MonsterTile";
 import { TextField } from "./TextField";
 
+const Limit = 20;
+
 export const MonsterList: FunctionComponent<{
     bestiary: Bestiary;
     onAdd: (id: string) => void;
@@ -42,12 +44,12 @@ export const MonsterList: FunctionComponent<{
             />
             <div class="px-4 py-3">
                 <h3 class="dark:bg-gray-800 dark:text-gray-500 bg-gray-200 font-semibold leading-6 px-2 py-3 rounded text-center text-gray-700 w-full">
-                    Showing {Math.min(monsters.length, 100)} of{" "}
+                    Showing {Math.min(monsters.length, Limit)} of{" "}
                     {monsters.length}
                 </h3>
             </div>
             <ul>
-                {monsters.slice(0, 100).map((monster) => (
+                {monsters.slice(0, Limit).map((monster) => (
                     <MonsterTile
                         key={monster.id}
                         monster={monster}
