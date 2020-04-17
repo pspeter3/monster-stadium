@@ -10,8 +10,7 @@ export const MonsterList: FunctionComponent<{
 }> = ({ bestiary, onAdd }) => {
     const [filter, setFilter] = useState("");
     const monsters: ReadonlyArray<Monster> = useMemo(() => {
-        const pattern =
-            filter !== "" ? new RegExp(filter, "i") : null;
+        const pattern = filter !== "" ? new RegExp(filter, "i") : null;
         const results: Monster[] = [];
         for (let monster of bestiary.values()) {
             if (
@@ -41,8 +40,14 @@ export const MonsterList: FunctionComponent<{
                 value={filter}
                 onInput={setFilter}
             />
+            <div class="px-4 py-3">
+                <h3 class="dark:bg-gray-800 dark:text-gray-500 bg-gray-200 font-semibold leading-6 px-2 py-3 rounded text-center text-gray-700 w-full">
+                    Showing {Math.min(monsters.length, 100)} of{" "}
+                    {monsters.length}
+                </h3>
+            </div>
             <ul>
-                {monsters.map((monster) => (
+                {monsters.slice(0, 100).map((monster) => (
                     <MonsterTile
                         key={monster.id}
                         monster={monster}
