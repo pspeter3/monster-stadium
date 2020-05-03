@@ -80,10 +80,10 @@ describe("Avrae", () => {
         const mock = jest.fn();
         const clipboard = navigator.clipboard;
         (navigator as any).clipboard = {
-            writeText: mock
+            writeText: mock,
         } as any;
         fireEvent.click(ctx.getByText("Copy"));
         expect(mock).toHaveBeenCalled();
-        (navigator as any).clipboard = clipboard
+        (navigator as any).clipboard = clipboard;
     });
 });
