@@ -31,29 +31,6 @@ describe("Avrae", () => {
         expect(ctx.baseElement).toMatchSnapshot();
     });
 
-    it("should handle non SRD monters", () => {
-        const ctx = render(
-            <Avrae
-                bestiary={Monsters}
-                encounter={{ name: "", monsters: { "abominable-yeti": 2 } }}
-            />
-        );
-        expect(ctx.baseElement).toMatchSnapshot();
-    });
-
-    it("should handle name collisions", () => {
-        const ctx = render(
-            <Avrae
-                bestiary={Monsters}
-                encounter={{
-                    name: "",
-                    monsters: { "abominable-yeti": 2, "awakened-shrub": 2 },
-                }}
-            />
-        );
-        expect(ctx.baseElement).toMatchSnapshot();
-    });
-
     it("should handle missing monsters", () => {
         const ctx = render(
             <Avrae

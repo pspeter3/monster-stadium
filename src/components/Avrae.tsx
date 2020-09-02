@@ -11,37 +11,19 @@ export const Avrae: FunctionComponent<{
     const combat = useMemo(() => {
         const lines = [
             "!multiline",
-            `!init begin dyn -name "${
+            `!init begin dyn turnnotif -name "${
                 encounter.name !== "" ? encounter.name : "Encounter"
             }"`,
         ];
-        const prefixes = new Set<string>();
         Object.keys(encounter.monsters)
             .sort()
             .forEach((id) => {
                 const monster = bestiary.get(id);
                 if (monster) {
-                    let prefix = "";
-                    for (let i = 1; i <= id.length; i++) {
-                        prefix = id.slice(0, i);
-                        if (!prefixes.has(prefix)) {
-                            prefixes.add(prefix);
-                            break;
-                        }
-                    }
-                    prefix = prefix.toUpperCase();
                     const count = encounter.monsters[id];
-                    if (monster.sources.includes("srd")) {
-                        lines.push(
-                            `!init madd "${monster.name}" -n ${count} -name "${prefix}# (${monster.name})" -rollhp -group ${id}`
-                        );
-                    } else {
-                        for (let i = 1; i <= count; i++) {
-                            lines.push(
-                                `!init add ${monster.init} "${prefix}${i} (${monster.name})" -h -hp ${monster.hp} -ac ${monster.ac} -group ${id}`
-                            );
-                        }
-                    }
+                    lines.push(
+                        `!init madd "${monster.name}" -n ${count} -rollhp -group ${id}`
+                    );
                 }
             });
         return lines.join("\n");

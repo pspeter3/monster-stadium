@@ -7,8 +7,8 @@ exports[`Avrae should handle SRD monsters 1`] = `
       class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
     >
       !multiline
-!init begin dyn -name "Encounter"
-!init madd "Awakened Shrub" -n 2 -name "A# (Awakened Shrub)" -rollhp -group awakened-shrub
+!init begin dyn turnnotif -name "Encounter"
+!init madd "Awakened Shrub" -n 2 -rollhp -group awakened-shrub
     </pre>
     <div
       class="px-4 py-3"
@@ -57,7 +57,7 @@ exports[`Avrae should handle a name 1`] = `
       class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
     >
       !multiline
-!init begin dyn -name "Test"
+!init begin dyn turnnotif -name "Test"
     </pre>
     <div
       class="px-4 py-3"
@@ -106,59 +106,7 @@ exports[`Avrae should handle missing monsters 1`] = `
       class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
     >
       !multiline
-!init begin dyn -name "Encounter"
-    </pre>
-    <div
-      class="px-4 py-3"
-    >
-      <button
-        class="dark:border-gray-700 dark:text-gray-500 dark:hover:bg-teal-900 dark:hover:text-teal-500 border-2 border-gray-200 focus:outline-none focus:shadow-outline focus:border-teal-600 font-bold hover:bg-teal-100 hover:border-teal-600 hover:text-teal-700 flex items-center justify-center h-12 rounded text-gray-700 w-full"
-      >
-        <svg
-          fill="none"
-          height="24"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            height="13"
-            rx="2"
-            ry="2"
-            width="13"
-            x="9"
-            y="9"
-          />
-          <path
-            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-          />
-        </svg>
-        <span
-          class="leading-6 px-3 tracking-wide uppercase"
-        >
-          Copy
-        </span>
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Avrae should handle name collisions 1`] = `
-<body>
-  <div>
-    <pre
-      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
-    >
-      !multiline
-!init begin dyn -name "Encounter"
-!init add 0 "A1 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
-!init add 0 "A2 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
-!init madd "Awakened Shrub" -n 2 -name "AW# (Awakened Shrub)" -rollhp -group awakened-shrub
+!init begin dyn turnnotif -name "Encounter"
     </pre>
     <div
       class="px-4 py-3"
@@ -207,58 +155,7 @@ exports[`Avrae should handle no name 1`] = `
       class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
     >
       !multiline
-!init begin dyn -name "Encounter"
-    </pre>
-    <div
-      class="px-4 py-3"
-    >
-      <button
-        class="dark:border-gray-700 dark:text-gray-500 dark:hover:bg-teal-900 dark:hover:text-teal-500 border-2 border-gray-200 focus:outline-none focus:shadow-outline focus:border-teal-600 font-bold hover:bg-teal-100 hover:border-teal-600 hover:text-teal-700 flex items-center justify-center h-12 rounded text-gray-700 w-full"
-      >
-        <svg
-          fill="none"
-          height="24"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            height="13"
-            rx="2"
-            ry="2"
-            width="13"
-            x="9"
-            y="9"
-          />
-          <path
-            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-          />
-        </svg>
-        <span
-          class="leading-6 px-3 tracking-wide uppercase"
-        >
-          Copy
-        </span>
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Avrae should handle non SRD monters 1`] = `
-<body>
-  <div>
-    <pre
-      class="bg-gray-800 leading-6 mx-4 overflow-x-scroll px-2 py-3 rounded text-gray-400"
-    >
-      !multiline
-!init begin dyn -name "Encounter"
-!init add 0 "A1 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
-!init add 0 "A2 (Abominable Yeti)" -h -hp 137 -ac 15 -group abominable-yeti
+!init begin dyn turnnotif -name "Encounter"
     </pre>
     <div
       class="px-4 py-3"

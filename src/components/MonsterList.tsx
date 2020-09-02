@@ -16,7 +16,7 @@ export const MonsterList: FunctionComponent<{
         const results: Monster[] = [];
         for (let monster of bestiary.values()) {
             if (
-                monster.sources.includes("srd") &&
+                (monster.sources.includes("srd") || monster.sources.includes("mm")) &&
                 (pattern === null || monster.name.match(pattern))
             ) {
                 results.push(monster);
