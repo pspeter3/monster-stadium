@@ -69,7 +69,7 @@ const config: webpack.Configuration = {
                             plugins: [
                                 require("tailwindcss")({
                                     future: {
-                                        removeDeprecatedGapUtilities: true
+                                        removeDeprecatedGapUtilities: true,
                                     },
                                     important: true,
                                     purge: [
