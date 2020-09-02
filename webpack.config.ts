@@ -68,6 +68,9 @@ const config: webpack.Configuration = {
                             ident: "postcss",
                             plugins: [
                                 require("tailwindcss")({
+                                    future: {
+                                        removeDeprecatedGapUtilities: true
+                                    },
                                     important: true,
                                     purge: [
                                         path.join(
