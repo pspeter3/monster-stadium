@@ -18,10 +18,9 @@
   },
   "homepage": "https://monster-stadium.netlify.com",
   "dependencies": {
-    "preact": "^10.4.8",
-    "preact-feather": "^4.1.0",
-    "tailwindcss": "^1.7.6",
-    "tslib": "^2.0.1"
+    "preact": "^10.5.13",
+    "preact-feather": "^4.2.1",
+    "tslib": "^2.1.0"
   },
   "devDependencies": {
     "@testing-library/preact": "^2.0.0",
@@ -38,6 +37,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.1.1",
+    "tailwindcss": "^1.7.6",
     "ts-jest": "^26.3.0",
     "ts-loader": "^8.0.3",
     "ts-node": "^9.0.0",
