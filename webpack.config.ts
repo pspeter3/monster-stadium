@@ -1,9 +1,8 @@
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
 import path from "path";
-import TerserJSPlugin from "terser-webpack-plugin";
-import webpack from "webpack";
+import webpack, { WebpackPluginInstance } from "webpack";
 
 class LangPlugin {
     public static readonly Name = "LangPlugin";
@@ -65,38 +64,39 @@ const config: webpack.Configuration = {
                     {
                         loader: "postcss-loader",
                         options: {
-                            ident: "postcss",
-                            plugins: [
-                                require("tailwindcss")({
-                                    future: {
-                                        removeDeprecatedGapUtilities: true,
-                                    },
-                                    important: true,
-                                    purge: [
-                                        path.join(
-                                            __dirname,
-                                            "src",
-                                            "**",
-                                            "*.tsx"
-                                        ),
-                                    ],
-                                    theme: {
-                                        extend: {
-                                            screens: {
-                                                dark: {
-                                                    raw:
-                                                        "(prefers-color-scheme: dark)",
+                            postcssOptions: {
+                                plugins: [
+                                    require("tailwindcss")({
+                                        future: {
+                                            removeDeprecatedGapUtilities: true,
+                                        },
+                                        important: true,
+                                        purge: [
+                                            path.join(
+                                                __dirname,
+                                                "src",
+                                                "**",
+                                                "*.tsx"
+                                            ),
+                                        ],
+                                        theme: {
+                                            extend: {
+                                                screens: {
+                                                    dark: {
+                                                        raw:
+                                                            "(prefers-color-scheme: dark)",
+                                                    },
+                                                },
+                                                boxShadow: {
+                                                    outline:
+                                                        "0 0 0 0.25rem rgba(56,178,172,0.5)",
                                                 },
                                             },
-                                            boxShadow: {
-                                                outline:
-                                                    "0 0 0 0.25rem rgba(56,178,172,0.5)",
-                                            },
                                         },
-                                    },
-                                }),
-                                require("autoprefixer"),
-                            ],
+                                    }),
+                                    require("autoprefixer"),
+                                ],
+                            },
                         },
                     },
                 ],
@@ -121,11 +121,10 @@ const config: webpack.Configuration = {
         new LangPlugin("en"),
     ],
     optimization: {
-        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-        runtimeChunk: true,
-        splitChunks: {
-            chunks: "all",
-        },
+        minimizer: [
+            "...",
+            (new CssMinimizerPlugin() as unknown) as WebpackPluginInstance,
+        ],
     },
 };
 
